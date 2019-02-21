@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <script>
+    window.ENVIRONMENT = 'production';
+  </script>
+
+  <!-- support for mobile touch devices -->
+  <meta
+    name="viewport"
+    content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
+  />
+
+  <link rel="stylesheet" href="/examples/assets/monokai.css" />
+  <link rel="stylesheet" href="/examples/assets/bulma.min.css" />
+  <link rel="stylesheet" href="/examples/assets/styles.css" />
+
+  <!-- include the hammer.js library for touch gestures-->
+  <script src="https://unpkg.com/hammerjs@2.0.8/hammer.js"></script>
+  <script src="https://unpkg.com/dicom-parser@1.8.3/dist/dicomParser.min.js"></script>
+
+  <!-- include the cornerstone library -->
+  <script src="https://unpkg.com/cornerstone-core"></script>
+  <script src="https://unpkg.com/cornerstone-math"></script>
+  <script src="https://unpkg.com/cornerstone-wado-image-loader"></script>
+
+  <!-- Why we're all here ;) -->
+  <script src="https://unpkg.com/cornerstone-tools@%5E3"></script>
+</head>
+<body><header role="banner">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/examples/">
+        <img src="https://placehold.it/112x28" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          Docs
+        </a>
+
+        <a class="navbar-item" href="/api">
+          API
+        </a>
+
+        <a class="navbar-item" href="/examples/">
+          Examples
+        </a>
+
+        <a class="navbar-item" href="https://github.com/cornerstonejs/cornerstoneTools">
+          GitHub
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+// Get all "navbar-burger" elements
+const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+// Check if there are any navbar burgers
+if ($navbarBurgers.length > 0) {
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+    });
+  });
+}
+
+});
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="section">
+  <div class="container">
+    <div class="home">
+      
+
+      
+
+
+      
+      <h2 class="title is-2">
+        Tool Index
+      </h2>
+      <ul class="tool-list">
+           
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/angle.html">
+              Angle Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/arrow-annotate.html">
+              Arrow Annotate Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/bidirectional.html">
+              Bidirectional Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/brush.html">
+              Brush Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/cobb-angle.html">
+              Cobb Angle Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/crosshairs.html">
+              Crosshairs Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/double-tap-fit-to-window.html">
+              Double Tap Fit To Window Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/drag-probe.html">
+              Drag Probe Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/elliptical-roi.html">
+              EllipticalRoi Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/eraser.html">
+              Eraser Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/freehand-mouse.html">
+              Freehand Mouse Tool
+            </a>
+          </h3>
+          
+        </li>
+            
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/length.html">
+              Length Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/magnify.html">
+              Magnify Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/pan.html">
+              Pan Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/probe.html">
+              Probe Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/rectangle-roi.html">
+              RectangleRoi Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/rotate.html">
+              Rotate Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/scale-overlay.html">
+              Scale Overlay Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/text-marker.html">
+              Text Marker Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/wwwc-region.html">
+              WWWC Region Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/wwwc.html">
+              WWWC Tool
+            </a>
+          </h3>
+          
+        </li>
+          
+        <li>
+          <h3>
+            <a class="tool-link" href="/examples/tools/zoom.html">
+              Zoom Tool
+            </a>
+          </h3>
+          
+        </li>
+             
+      </ul>
+      
+    </div>
+  </div>
+</section>
+
+      </div>
+    </main><footer class="footer">
+  <div class="content container">
+    <p>CornerstoneTools.js is a light-weight solution for building Tools on top of Cornerstone.js. It&#39;s only dependencies are libraries within the Cornerstone family. Instead of trying to &quot;do everything&quot; it aims to be extensible and pluggable to aid in the rapid development of new tools. Ideally, tools created using cornerstone-tools can be easily shared, allowing for the creation of a broader ecosystem.</p>
+
+    <p style="text-align: center;">
+      <strong>CornerstoneTools.js</strong> is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+    </p>
+  </div>
+</footer>
+</body>
+
+</html>
